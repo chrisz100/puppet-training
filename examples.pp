@@ -13,15 +13,15 @@ file { '/home/extcja01/demo.txt':
 	content => "Hostname: $hostname\n",
 }
 
-#host { 'demohost.local': 
-#	ensure => present,
-#	ip => '127.0.0.1',
-#	comment => 'demohost',
-#}
+host { 'demohost.local': 
+	ensure => present,
+	ip => '127.0.0.1',
+	comment => 'demohost',
+}
 
-#package { 'nload': 
-#	ensure => present,
-#}
+package { 'nload': 
+	ensure => latest,
+}
 
 # templates
 file { 'templateexample1': 
@@ -74,4 +74,21 @@ notice case $x {
 	$a      : { 'an array with both vim and emacs' }
 	*$a     : { 'vim or emacs'}
 	default : { 'no match' }
+}
+
+# iterations
+$a.each |Integer $index, String $value| {
+	notice("$value")
+}
+
+# attributes from hash
+$ownership = {
+	'owner' => 'root',
+	'group' => $rootgroup,
+	'mode' => '0644',
+}
+
+file { '/home/extcja01/demoperm.txt': 
+	ensure => file,
+	* => $ownership,
 }

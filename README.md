@@ -43,7 +43,7 @@ In short: Concept
 - http://docs.puppetlabs.com/references/latest/type.html
 
 ### syntax
-```ruby
+```puppet
 # comment
 <RESOURCE> { '<TITLE>':
   <ATTRIBUTE> => <VALUE>,
@@ -51,7 +51,7 @@ In short: Concept
 ```
 
 #### real world example
-```ruby
+```puppet
 # ensure /etc/passwd is present and root-rw-able only
 file {'/etc/passwd':
   ensure => file,
@@ -72,7 +72,7 @@ file {'/etc/passwd':
 more: https://docs.puppetlabs.com/puppet/latest/reference/lang_template_erb.html
 
 #### syntax
-```
+```ruby
 <%# Non-printing tag ↓ -%>
 <% if @keys_enable -%>
 <%# Expression-printing tag ↓ -%>
@@ -119,7 +119,7 @@ see more: http://docs.puppetlabs.com/puppet/latest/reference/lang_expressions.ht
 - `catalog n-n use of defined resource type`
 
 #### syntax
-```ruby
+```puppet
 define apache::vhost (Integer $port, String[1] $docroot, String[1] $servername = $title, String $vhost_name = '*') {
   include apache # contains Package['httpd'] and Service['httpd']
   include apache::params # contains common config settings
@@ -140,7 +140,7 @@ define apache::vhost (Integer $port, String[1] $docroot, String[1] $servername =
 - easy sorting
 - ensure preconditions for services are met
 
-```ruby
+```puppet
 # define stages
 stage { 'First': }
 
@@ -178,7 +178,7 @@ more: https://docs.puppetlabs.com/puppet/latest/reference/lang_run_stages.html
   - databases
   - ...
 
-```ruby
+```puppet
 $demo = hiera('value')
 ```
 

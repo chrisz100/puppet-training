@@ -1,5 +1,4 @@
 # puppet training
-Client: HRS Hotel Reservation Service / Robert Ragge GmbH  
 Date: December 2015
 
 ## ToC
